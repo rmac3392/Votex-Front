@@ -1,4 +1,4 @@
 <template>
-  <RouterView></RouterView>
+  <div class="">Login Page</div>
 </template>
 <script setup></script>
