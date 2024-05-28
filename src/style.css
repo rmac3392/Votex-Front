@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .active-li {
+    @apply mb-10 ms-6 text-white;
+  }
+  .active-span {
+    @apply absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-4 ring-white bg-white text-primary  ;
+  }
+
+  .active-h3 {
+    @apply leading-tight font-medium;
+  }
+
+  .general-li {
+    @apply mb-10 ms-6 text-gray-400;
+  }
+  .general-span {
+    @apply absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-2 ring-gray-400 bg-primary;
+  }
+
+  .general-h3 {
+    @apply leading-tight font-medium;
+  }
+}
