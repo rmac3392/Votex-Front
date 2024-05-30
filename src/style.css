@@ -21,6 +21,10 @@
     @apply absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-2 ring-gray-400 bg-primary;
   }
 
+  .visited-span {
+    @apply absolute flex items-center justify-center w-8 h-8 rounded-full -start-4 ring-2 ring-white bg-white text-primary;
+  }
+
   .general-h3 {
     @apply leading-tight font-medium;
   }

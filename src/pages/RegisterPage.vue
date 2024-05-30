@@ -9,9 +9,9 @@
           <ol
             class="relative text-gray-500 border-s border-white dark:text-gray-400"
           >
-            <li :class="currentView === 0 ? 'active-li' : 'general-li'">
-              <span :class="currentView === 0 ? 'active-span' : 'general-span'">
-                <CheckIcon v-if="1 === currentView " class="h-12"/>
+            <li :class="currentView === 0 ? 'active-li' :'general-li'">
+              <span :class="currentView === 0 ? 'active-span' : isVisited[0]==true?  'visited-span': 'general-span'">
+                <CheckIcon v-if="isVisited[0]===true " class="h-12"/>
                 <div v-else>1</div>
               </span>
               <h3 :class="currentView === 0 ? 'active-h3' : 'general-h3'">
@@ -20,8 +20,8 @@
               <p class="text-sm">Step 1</p>
             </li>
             <li :class="currentView === 1 ? 'active-li' : 'general-li'">
-              <span :class="currentView === 1 ? 'active-span' : 'general-span'">
-                <CheckIcon v-if="2 === currentView "/>
+              <span :class="currentView === 1 ? 'active-span' : isVisited[1]==true?  'visited-span': 'general-span'">
+                <CheckIcon v-if="isVisited[1]===true "/>
                 <div v-else>2</div>
               </span>
               <h3 :class="currentView === 1 ? 'active-h3' : 'general-h3'">
@@ -30,8 +30,9 @@
               <p class="text-sm">Step 2</p>
             </li>
             <li :class="currentView === 2 ? 'active-li' : 'general-li'">
-              <span :class="currentView === 2 ? 'active-span' : 'general-span'">
-                <div>3</div>
+              <span :class="currentView === 2 ? 'active-span' : isVisited[2]==true?  'visited-span': 'general-span'">
+                <CheckIcon v-if="isVisited[2]===true "/>
+                <div v-else>3</div>
               </span>
               <h3 :class="currentView === 2 ? 'active-h3' : 'general-h3'">
                 School Documents
@@ -39,8 +40,9 @@
               <p class="text-sm">Step 3</p>
             </li>
             <li :class="currentView === 3 ? 'active-li' : 'general-li'">
-              <span :class="currentView === 3 ? 'active-span' : 'general-span'">
-                <div>4</div>
+              <span :class="currentView === 3 ? 'active-span' : isVisited[3]==true?  'visited-span': 'general-span'">
+                <CheckIcon v-if="isVisited[3]===true "/>
+                <div v-else>4</div>
               </span>
               <h3 :class="currentView === 3 ? 'active-h3' : 'general-h3'">
                 Security Login
@@ -93,17 +95,25 @@
           class="dc-btn dc-btn-primary"
           @click="
             if (currentView != 0) {
+              isVisited[currentView-1] = false;
               currentView--;
+              console.log(isVisited[currentView+1]);
             }
           "
         >
           Prev
         </button>
+        
         <button
           class="dc-btn dc-btn-primary"
           @click="
             if (currentView != 4) {
+              isVisited[currentView] = true;
               currentView++;
+              console.log(isVisited[currentView-1]);
+            }
+            else{
+              $router.push('/')
             }
           "
         >
@@ -124,4 +134,9 @@ import Step5View from "../registerView/Step5View.vue";
 import { CheckIcon } from "@heroicons/vue/24/solid";
 
 let currentView = ref(0);
+let isVisited = [false,false,false,false,false];
+
+
+
+
 </script>
