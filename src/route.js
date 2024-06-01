@@ -8,12 +8,12 @@ const routes = [
   { path: "/", name: "LoginPage", component: LoginPage },
   { path: "/adminPage", name: "AdminPage", component: AdminPage },
   { path: "/registerPage", name: "RegisterPage", component: RegisterPage },
-  { path: "/votePage", name: "VotePage", component: VotePage }
+  { path: "/votePage", name: "VotePage", component: VotePage },
 ];
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
-})
+  history: createWebHistory(),
+  routes,
+});
 
 export default router;
