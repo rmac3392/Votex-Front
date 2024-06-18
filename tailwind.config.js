@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx,vue}"],
   theme: {
     extend: {
+      backgroundImage: {
+        'card': 'linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(42,45,87,1) 42%, rgba(0,212,255,1) 100%)',
+      },
       colors: {
         primary: "#2a2d57",
         secondary: "#DDD3DD",

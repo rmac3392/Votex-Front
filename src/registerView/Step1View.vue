@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full bg-white">
+  <div class="h-full bg-white px-60 pt-60">
     <div class="h-[10%] text-3xl font-semibold text-primary">
       Personal Information
     </div>

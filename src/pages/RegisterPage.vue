@@ -95,7 +95,7 @@
       </div>
     </div>
     <div class="w-3/4 h-full">
-      <div class="h-[65%] px-60 pt-60">
+      <div class="h-[65%] ">
         <Step1View v-if="currentView === 0" class="" />
         <Step2View v-if="currentView === 1" class="" />
         <Step3View v-if="currentView === 2" class="" />
