@@ -95,12 +95,12 @@
       </div>
     </div>
     <div class="w-3/4 h-full">
-      <div class="h-[65%] ">
-        <Step1View v-if="currentView === 0" class="" />
-        <Step2View v-if="currentView === 1" class="" />
-        <Step3View v-if="currentView === 2" class="" />
-        <Step4View v-if="currentView === 3" class="" />
-        <Step5View v-if="currentView === 4" class="" />
+      <div class="h-[65%]">
+        <Step1View :formData="formData" v-if="currentView === 0" class="" />
+        <Step2View :formData="formData" v-if="currentView === 1" class="" />
+        <Step3View :formData="formData" v-if="currentView === 2" class="" />
+        <Step4View :formData="formData" v-if="currentView === 3" class="" />
+        <Step5View :formData="formData" v-if="currentView === 4" class="" />
       </div>
       <div class="flex h-[35%] px-60 pb-60">
         <div class="w-1/2 flex justify-start">
@@ -147,7 +147,7 @@
   </div>
 </template>
 <script setup>
-import { ref } from "vue";
+import { ref, reactive } from "vue";
 import { CheckIcon, ChevronRightIcon } from "@heroicons/vue/24/solid";
 import router from "../route.js";
 
@@ -177,4 +177,35 @@ const next = () => {
     router.push("/");
   }
 };
+
+const formData = reactive({
+  step1: {
+    first_name: "",
+    middle_name: "",
+    last_name: "",
+    suffix: "",
+    birthdate: "",
+    male: "",
+    female: "",
+    status: "",
+    religion: "",
+  },
+
+  step2: {
+    city_address: "",
+    provincial_address: "",
+    email: "",
+    birthplace: "",
+    mobile_no: "",
+  },
+
+  step3: {
+    student_id: 0,
+    year: "",
+    department: "",
+    course: "",
+    student_id_img: null,
+    study_load_img: null,
+  },
+});
 </script>

@@ -6,6 +6,7 @@
     <div class="flex flex-col justify-center h-[90%] space-y-3">
       <div class="gap-3">
         <input
+          v-model="formData.step3.student_id"
           type="number"
           id="student_id"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block w-full p-2.5"
@@ -15,8 +16,9 @@
       </div>
       <div class="flex gap-3">
         <select
+        v-model="formData.step3.year"
           name=""
-          id=""
+          id="year"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
           placeholder="Year Level"
         >
@@ -26,8 +28,9 @@
           <option value="">4th</option>
         </select>
         <select
+        v-model="formData.step3.department"
           name=""
-          id=""
+          id="department"
           class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
           placeholder="Department"
         >
@@ -37,8 +40,9 @@
         </select>
 
         <select
+         v-model="formData.step3.course"
           name=""
-          id=""
+          id="course"
           class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
           placeholder="Courses"
         >
@@ -51,9 +55,10 @@
       </div>
 
       <div class="flex gap-3">
+        
         <div class="flex items-center justify-center w-full">
           <label
-            for="dropzone-file"
+            for="student_id_img"
             class="flex flex-col items-center justify-center w-full h-56 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50  hover:bg-gray-100 "
           >
             <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -80,12 +85,12 @@
                 School ID Image
               </p>
             </div>
-            <input id="dropzone-file" type="file" class="hidden" />
+            <input @change="uploadStudentId" id="student_id_img" type="file" class="hidden" />
           </label>
         </div>
         <div class="flex items-center justify-center w-full">
           <label
-            for="dropzone-file"
+            for="study_load_img"
             class="flex flex-col items-center justify-center w-full h-56 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800  hover:bg-gray-100 "
           >
             <div class="flex flex-col items-center justify-center pt-5 pb-6">
@@ -112,12 +117,30 @@
                 Study Load Image
               </p>
             </div>
-            <input id="dropzone-file" type="file" class="hidden" />
+            <input @change="uploadStudyLoad" id="study_load_img" type="file" class="hidden" />
           </label>
         </div>
       </div>
     </div>
   </div>
 </template>
-<style></style>
-<script setup></script>
+
+<script setup>
+const props = defineProps({
+  formData: Object,
+});
+
+const uploadStudentId = (e) =>{
+  const file = e.target.files[0];
+  if(file){
+    props.formData.step3.student_id_img = file;
+  }
+}
+
+const uploadStudyLoad = (e) =>{
+  const file = e.target.files[0];
+  if(file){
+    props.formData.step3.study_load_img = file;
+  }
+}
+</script>

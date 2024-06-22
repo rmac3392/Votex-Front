@@ -223,7 +223,7 @@
                       <div
                         class="h-[12.5%] text-sm font-semibold flex items-center justify-start"
                       >
-                        <div>Male</div>
+                        <div>MALE</div>
                       </div>
 
                       <div
@@ -256,7 +256,7 @@
                       <div
                         class="h-[12.5%] text-sm font-semibold flex items-center justify-start"
                       >
-                        <div>Single</div>
+                        <div>SINGLE</div>
                       </div>
                     </div>
                   </div>
@@ -289,7 +289,42 @@
     </div>
   </div>
 </template>
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+// const formData = ref({
+//   first_name : '',
+//   middle_name : '',
+//   last_name : '',
+//   suffix: '',
+//   birthdate: '',
+//   gender: '',
+//   status: '',
+//   religion: '',
+
+//   city_address: '',
+//   provincial_address: '',
+//   email: '',
+//   birthplace: '',
+//   mobile_no: '',
+//   student_id: 0,
+//   year: 1,
+//   department: '',
+//   course: '',
+//   student_id_img: '',
+//   study_load: '',
+
+//   password: '',
+//   sq1: '',
+//   ans1: '',
+//   sq2: '',
+//   ans2: '',
+//   sq3: '',
+//   ans3: '',
+// });
+
+
+</script>
 <!-- 
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
  -->

@@ -6,6 +6,7 @@
     <div class="flex flex-col justify-center h-[90%] space-y-4">
       <div class="">
         <input
+          v-model="formData.step1.first_name"
           type="text"
           id="first_name"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block w-full p-2.5"
@@ -15,13 +16,14 @@
       </div>
       <div class="flex gap-3">
         <input
+          v-model="formData.step1.middle_name"
           type="text"
           id="middle_name"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
           placeholder="Middle Name"
-          required
         />
         <input
+          v-model="formData.step1.last_name"
           type="text"
           id="last_name"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block w-full p-2.5"
@@ -29,6 +31,7 @@
           required
         />
         <input
+          v-model="formData.step1.suffix"
           type="text"
           id="suffix"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
@@ -37,8 +40,9 @@
       </div>
       <div class="flex gap-3 w-full">
         <input
+          v-model="formData.step1.date"
           type="date"
-          id="first_name"
+          id="date"
           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary w-full block p-2.5"
           placeholder="Birthdate (mm-dd-yyyy)"
           required
@@ -50,29 +54,31 @@
         >
           <div class="flex items-center">
             <input
-              id="default-radio-1"
+              v-model="formData.step1.male"
+              checked
+              id="male"
               type="radio"
               value=""
               name="default-radio"
               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label
-              for="default-radio-1"
+              for="male"
               class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >Male</label
             >
           </div>
           <div class="flex items-center">
             <input
-              checked
-              id="default-radio-2"
+              v-model="formData.step1.female"
+              id="female"
               type="radio"
               value=""
               name="default-radio"
               class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label
-              for="default-radio-2"
+              for="female"
               class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
               >Female</label
             >
@@ -80,8 +86,9 @@
         </div>
         <div class="flex gap-3 w-full">
           <select
+            v-model="formData.step1.status"
             name=""
-            id=""
+            id="status"
             class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
             placeholder="Civil Status"
           >
@@ -93,19 +100,24 @@
       </div>
       <div class="flex">
         <select
-            name=""
-            id=""
-            class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
-            placeholder="Civil Status"
-          >
-            <option value="">Roman Catholic</option>
-            <option value="">Islam</option>
-            <option value="">Seventh Day Adventist</option>
-            <option value="">Bible Baptist</option>
-            <option value="">Others</option>
-          </select>
+          v-model="formData.step1.religion"
+          name=""
+          id="religion"
+          class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:outline-none focus:ring-2 focus:primary block p-2.5"
+          placeholder="Civil Status"
+        >
+          <option value="">Roman Catholic</option>
+          <option value="">Islam</option>
+          <option value="">Seventh Day Adventist</option>
+          <option value="">Bible Baptist</option>
+          <option value="">Others</option>
+        </select>
       </div>
     </div>
   </div>
 </template>
-<script setup></script>
+<script setup>
+const props = defineProps({
+  formData: Object,
+});
+</script>
